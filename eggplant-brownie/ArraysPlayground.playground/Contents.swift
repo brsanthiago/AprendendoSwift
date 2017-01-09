@@ -23,13 +23,14 @@ for calories in totalCalories{
     print("Calories are \(calories)")
 }
 
-
+//return void
 func allCalories(calories : Array<Double>){
     var total:Double = 0;
     for c in calories{
         total += c;
     }
 }
+//return Double -> Double
 func allCaloriesReturnDouble(calories : Array<Double>) -> Double{
     var total:Double = 0;
     for c in calories{
