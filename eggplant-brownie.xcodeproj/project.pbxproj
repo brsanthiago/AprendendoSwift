@@ -47,9 +47,7 @@
 		5FAF626F1E23C02700A2FBA4 /* eggplant-brownieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "eggplant-brownieUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FAF62731E23C02700A2FBA4 /* eggplant_brownieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eggplant_brownieUITests.swift; sourceTree = "<group>"; };
 		5FAF62751E23C02700A2FBA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5FAF62811E23D82800A2FBA4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		5FAF62821E23E5F000A2FBA4 /* ArraysPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ArraysPlayground.playground; sourceTree = "<group>"; };
-		5FAF62831E23EC6200A2FBA4 /* ClassesInstanciasObjetosPropriedadesPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassesInstanciasObjetosPropriedadesPlayground.playground; sourceTree = "<group>"; };
+		5FAF62841E23F6A400A2FBA4 /* GoodCitizenPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GoodCitizenPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +104,7 @@
 				5FAF625A1E23C02700A2FBA4 /* Assets.xcassets */,
 				5FAF625C1E23C02700A2FBA4 /* LaunchScreen.storyboard */,
 				5FAF625F1E23C02700A2FBA4 /* Info.plist */,
-				5FAF62811E23D82800A2FBA4 /* MyPlayground.playground */,
-				5FAF62821E23E5F000A2FBA4 /* ArraysPlayground.playground */,
-				5FAF62831E23EC6200A2FBA4 /* ClassesInstanciasObjetosPropriedadesPlayground.playground */,
+				5FAF62841E23F6A400A2FBA4 /* GoodCitizenPlayground.playground */,
 			);
 			path = "eggplant-brownie";
 			sourceTree = "<group>";
