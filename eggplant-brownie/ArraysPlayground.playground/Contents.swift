@@ -30,3 +30,16 @@ func allCalories(calories : Array<Double>){
         total += c;
     }
 }
+func allCaloriesReturnDouble(calories : Array<Double>) -> Double{
+    var total:Double = 0;
+    for c in calories{
+        total += c;
+    }
+    return total
+}
+
+
+allCalories(calories: [10.5,213,12.2,124.5])
+allCaloriesReturnDouble(calories: [10.5,213,12.2,124.5])
+
+
