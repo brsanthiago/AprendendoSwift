@@ -11,22 +11,30 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet
-    var nameField : UITextField!;
+    var nameField : UITextField?;
     
     @IBOutlet
-    var happinessField : UITextField!;
+    var happinessField : UITextField?;
     
     
     @IBAction
     func add(){
-        //Declaracao de variavel implicita  var teste = "TESTE VARIAVEL IMPLICITA"
-        //No swift não é obrigatório colocar ; no final da linha, caso seja executado somente aquele comando... NO caso de 2 ou mais comandos sendo executado na mesma linha deve-se incluir o ;
-        //LET é uma constante do swift
-        let name = nameField.text
-        //Declaração de variavel explicita var teste:String = "Teste Variavel Explicita"
-        let happiness=happinessField.text
-        print("eaten \(name) whith happiness \(happiness)")
-    
+        
+        if(nameField == nil || happinessField == nil){
+            return;
+        }
+        
+        let name:String = nameField!.text!;
+        
+        if let happiness:Int = Int(happinessField!.text!){
+            
+        let meal = Meal(name: name,happiness:happiness)
+        
+        
+        print("Eaten \(meal.name) whith happiness \(meal.happiness)!")
+            
+        }
+        
     }
 
 }
