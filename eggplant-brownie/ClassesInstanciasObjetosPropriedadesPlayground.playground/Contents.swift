@@ -41,3 +41,12 @@ if let name = brownieOptional.name{
     print("Opa, eu tenho um nome")
     print(brownieOptional.name)
 }
+
+
+//Métodos que retorna Optional
+
+let numero = Int("5")
+if let n = numero{
+    print(n)
+}
+
