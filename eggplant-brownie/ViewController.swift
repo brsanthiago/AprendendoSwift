@@ -10,16 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet
+    var nameField : UITextField!;
+    
+    @IBOutlet
+    var happinessField : UITextField!;
+    
+    
+    @IBAction
+    func add(){
+        //Declaracao de variavel implicita  var teste = "TESTE VARIAVEL IMPLICITA"
+        //No swift não é obrigatório colocar ; no final da linha, caso seja executado somente aquele comando... NO caso de 2 ou mais comandos sendo executado na mesma linha deve-se incluir o ;
+        //LET é uma constante do swift
+        let name = nameField.text
+        //Declaração de variavel explicita var teste:String = "Teste Variavel Explicita"
+        let happiness=happinessField.text
+        print("eaten \(name) whith happiness \(happiness)")
+    
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
