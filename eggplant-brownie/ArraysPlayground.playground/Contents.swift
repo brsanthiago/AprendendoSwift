@@ -43,3 +43,11 @@ allCalories(calories: [10.5,213,12.2,124.5])
 allCaloriesReturnDouble(calories: [10.5,213,12.2,124.5])
 
 
+var values = [1,2]
+var total = 0;
+for v in values{
+    total += v
+}
+print(total/values.count)
+
+
