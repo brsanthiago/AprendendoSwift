@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet
     var happinessField : UITextField?;
     
+    var mealsTable : MealsTableViewContoller?;
+    
     
     @IBAction
     func add(){
@@ -32,6 +34,12 @@ class ViewController: UIViewController {
         
         
         print("Eaten \(meal.name) whith happiness \(meal.happiness)!")
+            
+            if (mealsTable == nil) {
+                return;
+            }
+            
+            mealsTable!.add(meal : meal)
             
             if let navigation = navigationController{
                 navigation.popViewController(animated: true);
