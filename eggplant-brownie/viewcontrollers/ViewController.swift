@@ -33,6 +33,10 @@ class ViewController: UIViewController {
         
         print("Eaten \(meal.name) whith happiness \(meal.happiness)!")
             
+            if let navigation = navigationController{
+                navigation.popViewController(animated: true);
+            }
+            
         }
         
     }
