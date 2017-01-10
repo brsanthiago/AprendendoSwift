@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5F03957E1E25022D00D7D68C /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F03957D1E25022D00D7D68C /* MealsTableViewController.swift */; };
+		5F0395921E2532C000D7D68C /* AddAMealDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0395911E2532C000D7D68C /* AddAMealDelegate.swift */; };
+		5F0395961E2552A300D7D68C /* NewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0395941E2552A300D7D68C /* NewItemViewController.xib */; };
+		5F0395981E2552EB00D7D68C /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0395971E2552EB00D7D68C /* NewItemViewController.swift */; };
+		5F03959A1E255A2800D7D68C /* AddAItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0395991E255A2800D7D68C /* AddAItemDelegate.swift */; };
 		5FAF62541E23C02700A2FBA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAF62531E23C02700A2FBA4 /* AppDelegate.swift */; };
 		5FAF625B1E23C02700A2FBA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FAF625A1E23C02700A2FBA4 /* Assets.xcassets */; };
 		5FAF625E1E23C02700A2FBA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FAF625C1E23C02700A2FBA4 /* LaunchScreen.storyboard */; };
@@ -38,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		5F03957D1E25022D00D7D68C /* MealsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
+		5F0395911E2532C000D7D68C /* AddAMealDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAMealDelegate.swift; sourceTree = "<group>"; };
+		5F0395941E2552A300D7D68C /* NewItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewItemViewController.xib; sourceTree = "<group>"; };
+		5F0395971E2552EB00D7D68C /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
+		5F0395991E255A2800D7D68C /* AddAItemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAItemDelegate.swift; sourceTree = "<group>"; };
 		5FAF62501E23C02700A2FBA4 /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FAF62531E23C02700A2FBA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FAF625A1E23C02700A2FBA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +145,8 @@
 			children = (
 				5FAF62891E2409B400A2FBA4 /* Meal.swift */,
 				5FAF628B1E2409FE00A2FBA4 /* Item.swift */,
+				5F0395911E2532C000D7D68C /* AddAMealDelegate.swift */,
+				5F0395991E255A2800D7D68C /* AddAItemDelegate.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -145,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				5FAF62901E240C2100A2FBA4 /* Main.storyboard */,
+				5F0395941E2552A300D7D68C /* NewItemViewController.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -152,6 +163,7 @@
 		5FAF628D1E240B5E00A2FBA4 /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				5F0395971E2552EB00D7D68C /* NewItemViewController.swift */,
 				5FAF628E1E240B5E00A2FBA4 /* ViewController.swift */,
 				5F03957D1E25022D00D7D68C /* MealsTableViewController.swift */,
 			);
@@ -268,6 +280,7 @@
 			files = (
 				5FAF62911E240C2100A2FBA4 /* Main.storyboard in Resources */,
 				5FAF625E1E23C02700A2FBA4 /* LaunchScreen.storyboard in Resources */,
+				5F0395961E2552A300D7D68C /* NewItemViewController.xib in Resources */,
 				5FAF625B1E23C02700A2FBA4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +311,9 @@
 				5FAF628A1E2409B400A2FBA4 /* Meal.swift in Sources */,
 				5FAF628F1E240B5E00A2FBA4 /* ViewController.swift in Sources */,
 				5FAF62541E23C02700A2FBA4 /* AppDelegate.swift in Sources */,
+				5F03959A1E255A2800D7D68C /* AddAItemDelegate.swift in Sources */,
+				5F0395921E2532C000D7D68C /* AddAMealDelegate.swift in Sources */,
+				5F0395981E2552EB00D7D68C /* NewItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

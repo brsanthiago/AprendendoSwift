@@ -8,16 +8,39 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAItemDelegate {
 
-    @IBOutlet
-    var nameField : UITextField?;
+    @IBOutlet var nameField : UITextField?;
     
-    @IBOutlet
-    var happinessField : UITextField?;
+    @IBOutlet var happinessField : UITextField?;
     
-    var mealsTable : MealsTableViewContoller?;
+    var delegate : AddAMealDelegate?;
     
+    var selected = Array<Item> ();
+    
+    var items = [Item(name: "Eggplant", calories:5) ,Item(name: "Brownie", calories:10) ,Item(name: "Açaí",calories: 8),Item(name: "Muffin", calories:15) ,Item(name: "Chocolate Branco", calories:12)];
+    
+    @IBOutlet var tableView : UITableView?;
+    
+    func add(_ item: Item) {
+        items.append(item);
+        if let table = tableView{
+            tableView?.reloadData();
+        }
+    }
+    
+    override func viewDidLoad() {
+        let newItemButton = UIBarButtonItem(title: "New Item", style: UIBarButtonItemStyle.plain, target: self, action: #selector(showNewItem));
+        
+        navigationItem.rightBarButtonItem = newItemButton;
+    }
+    
+    func showNewItem(){
+        let newItem = NewItemViewController(delegate: self);
+        if let navigation = navigationController{
+            navigation.pushViewController(newItem, animated: true);
+        }
+    }
     
     @IBAction
     func add(){
@@ -30,16 +53,15 @@ class ViewController: UIViewController {
         
         if let happiness:Int = Int(happinessField!.text!){
             
-        let meal = Meal(name: name,happiness:happiness)
+            let meal = Meal(name: name,happiness:happiness, items: selected)
         
-        
-        print("Eaten \(meal.name) whith happiness \(meal.happiness)!")
+        print("Eaten \(meal.name) whith happiness \(meal.happiness) with \(meal.items)!")
             
-            if (mealsTable == nil) {
+            if (delegate == nil) {
                 return;
             }
             
-            mealsTable!.add(meal)
+            delegate!.add(meal)
             
             if let navigation = navigationController{
                 navigation.popViewController(animated: true);
@@ -48,6 +70,33 @@ class ViewController: UIViewController {
         }
         
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count;
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
+        UITableViewCell {
+            let row = indexPath.row;
+            let item = items[row]
+            let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: nil);
+            cell.textLabel!.text =  item.name
+            return cell;
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){            if (cell.accessoryType == UITableViewCellAccessoryType.none){
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark;
+                let item = items[indexPath.row];
+                selected.append(item);
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryType.none;
+                let item = items[indexPath.row];
+                if let position = items.index(of: item){
+                    selected.remove(at: position);
+                }
+            
+            }
+        }
+    }
+    
 
 }
 
