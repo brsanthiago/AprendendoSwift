@@ -12,12 +12,21 @@ class MealsTableViewContoller : UITableViewController, AddAMealDelegate{
     
     
     
-    var meals = [Meal(name:"eggplant browine", happiness: 5),Meal(name: "Açaí", happiness: 5),Meal(name: "Crepe", happiness: 3),Meal(name: "Sorvete", happiness: 4)];
+    var meals = Array<Meal>();
    
+    override func viewDidLoad() {
+        
+        self.meals = MealDao().load();
+    }
+    
     
     func add(_ meal:Meal){
         meals.append(meal);
+        
+        MealDao().save(meals);
+        
         tableView.reloadData();
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,13 +68,10 @@ class MealsTableViewContoller : UITableViewController, AddAMealDelegate{
                 let row = indexPath.row;
                 let meal = meals[row];
                 
-                let alertDetail = UIAlertController(title: meal.name, message: meal.details(), preferredStyle: UIAlertControllerStyle.alert);
-                
-                let actionOk = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil);
-                
-                alertDetail.addAction(actionOk);
-                
-                present(alertDetail, animated: true, completion: nil);
+                RemoveViewController(controller: self).show(meal, handler: { action in
+                    self.meals.remove(at: row);
+                    self.tableView.reloadData();
+                });
                 
             }
             

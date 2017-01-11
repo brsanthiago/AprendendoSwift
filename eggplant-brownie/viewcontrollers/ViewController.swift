@@ -18,23 +18,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var selected = Array<Item> ();
     
-    var items = [Item(name: "Eggplant", calories:5) ,Item(name: "Brownie", calories:10) ,Item(name: "Açaí",calories: 8),Item(name: "Muffin", calories:15) ,Item(name: "Chocolate Branco", calories:12)];
+    var items = Array<Item>();
     
     @IBOutlet var tableView : UITableView?;
     
     func add(_ item: Item) {
         items.append(item);
+        
+        ItemDao().save(items);
+        
         if let table = tableView{
             table.reloadData();
         }else{
-            let errorAlert = UIAlertController(title: "Sorry", message: "Unable to update the table", preferredStyle: UIAlertControllerStyle.alert);
-            
-            let actionUnderstood = UIAlertAction(title: "Understood", style: UIAlertActionStyle.cancel, handler: nil);
-            
-            errorAlert.addAction(actionUnderstood);
-            
-            present(errorAlert, animated: true, completion: nil);
-            
+            Alert(controller: self).show(message: "Unable to update items table!");
         }
         tableView?.reloadData();
     }
@@ -43,43 +39,56 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let newItemButton = UIBarButtonItem(title: "New Item", style: UIBarButtonItemStyle.plain, target: self, action: #selector(showNewItem));
         
         navigationItem.rightBarButtonItem = newItemButton;
+        
+        self.items = ItemDao().load();
     }
     
     func showNewItem(){
         let newItem = NewItemViewController(delegate: self);
         if let navigation = navigationController{
             navigation.pushViewController(newItem, animated: true);
+        }else{
+            Alert(controller: self).show();
         }
     }
     
     @IBAction
     func add(){
         
-        if(nameField == nil || happinessField == nil){
-            return;
-        }
-        
-        let name:String = nameField!.text!;
-        
-        if let happiness:Int = Int(happinessField!.text!){
-            
-            let meal = Meal(name: name,happiness:happiness, items: selected)
-        
-        print("Eaten \(meal.name) whith happiness \(meal.happiness) with \(meal.items)!")
-            
-            if (delegate == nil) {
+        if let meal = getMealFromFrom(){
+            if let meals = delegate{
+                meals.add(meal);
+                if let navigation = navigationController{
+                    navigation.popViewController(animated: true);
+                } else {
+                    Alert(controller: self).show(message: "Unable to go back, but the meal was added.");
+                }
                 return;
             }
-            
-            delegate!.add(meal)
-            
-            if let navigation = navigationController{
-                navigation.popViewController(animated: true);
-            }
-            
         }
         
+        Alert(controller: self).show();
     }
+    
+    func getMealFromFrom() -> Meal? {
+        if let name = nameField?.text{
+            if let happiness = parseToInt(happinessField?.text){
+                let meal = Meal(name: name, happiness: happiness, items: selected);
+                return meal;
+            }
+        }
+        return nil;
+    }
+    
+    func parseToInt(_ text:String?) -> Int? {
+        if let number = text{
+            return Int(number);
+        }
+        return nil;
+    }
+        
+        
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count;
     }
